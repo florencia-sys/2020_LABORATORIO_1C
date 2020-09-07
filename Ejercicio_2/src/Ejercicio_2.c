@@ -21,26 +21,58 @@ int main(void) {
 	int edad;
 	int suma = 0;
 	float promedio;
+	int maximo;
+	int minimo;
+	char nombreMax;
+	char nombreMin;
+	int flag = 0;
 
-	for (i = 0; i < 10; i++)
+	for (i = 0; i < 3; i++)
 	{
 		printf ("Ingrese nombre: \n");
-		scanf ("%c", &nombre);
 		fflush(stdin);
+		scanf ("%s", &nombre);
+
 		printf ("Ingrese sexo: \n");
+		fflush(stdin);
 		scanf ("%c", &sexo);
-		fflush(stdin);
+
 		printf ("Ingrese edad: \n");
-		scanf ("%d", &edad);
 		fflush(stdin);
+		scanf ("%d", &edad);
+
+
+	if ( flag == 0 )
+	{
+		maximo = edad;
+		minimo = edad;
+		nombreMax = nombre;
+		nombreMin = nombre;
+		flag = 1;
+	}
+	else
+	{
+		if (edad > maximo)
+		{
+			maximo = edad;
+			nombreMax = nombre;
+		}
+		if ( edad < minimo )
+		{
+			minimo = edad;
+			nombreMin = nombre;
+		}
+	}
+
+	}
 
 	suma = suma + edad;
 	promedio = (float)suma / 2;
 
-	}
-
 	printf ("Suma: %d\n", suma);
-	printf ("Promedio: %f", promedio);
+	printf ("Promedio: %f\n", promedio);
+	printf ("El mayor es %c\n", nombreMax);
+	printf ("El menor es %c\n", nombreMin);
 
 	return EXIT_SUCCESS;
 }
